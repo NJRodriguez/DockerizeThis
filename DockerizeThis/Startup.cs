@@ -34,7 +34,7 @@ namespace DockerizeThis
             }
             else
             {
-                app.UseExceptionHandler("/Home/Error");
+                app.UseExceptionHandler("/Shared/Error");
             }
 
             app.UseStaticFiles();
@@ -43,7 +43,7 @@ namespace DockerizeThis
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
+                    template: "{controller=Upload}/{action=Index}/{id?}");
             });
         }
     }
