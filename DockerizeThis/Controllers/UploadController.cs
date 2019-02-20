@@ -21,7 +21,7 @@ namespace DockerizeThis.Controllers
 
             //Path where you want to save the uploaded file.
             //Hardcoded for now, since all docker images should be using the same directory.
-            var filePath = @"/ws_persist/";
+            var filePath = @"/ws_persist";
 
             //Should validate if directory above exists...
             foreach (var formFile in files)
@@ -29,7 +29,7 @@ namespace DockerizeThis.Controllers
                 if (formFile.Length > 0)
                 {
                     //Upload file to directory with same filename.
-                    using (var stream = new FileStream(filePath + formFile.FileName, FileMode.Create))
+                    using (var stream = new FileStream(Path.Combine(filePath,formFile.FileName), FileMode.Create))
                     {
                         await formFile.CopyToAsync(stream);
                     }
